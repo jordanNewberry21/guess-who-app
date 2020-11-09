@@ -3,3 +3,7 @@ h1 {
     text-align: center;
     width: 60%;
 }
+
+#pictureSpot div {
+    display: inline-block;
+}
