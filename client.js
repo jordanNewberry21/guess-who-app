@@ -9,7 +9,7 @@ function readyNow() {
 
     for (let i = 0; i < people.length; i++) { // for-of loop creating dynamic divs with unique IDs
         let newDiv = `
-        <div class="${i}">
+        <div class="divs">
         <img class="imgClick" data-name="${people[i].githubUsername}" src="https://github.com/${people[i].githubUsername}.png?size=250" alt="${people[i].name}">
         </div>`;
         $('#pictureSpot').append(newDiv);
@@ -22,11 +22,11 @@ function randomNumber(min, max) { // random number generator
 
 function handleClick() { // click handler
     let whatEva = $(this).data('name'); // grabbing username data from the img tag
-    if (whatEva == people[personNumber].githubUsername) { // comparing the data to the object
+    if (whatEva === people[personNumber].githubUsername) { // comparing the data to the object
         alert('You got it right! Go for another!');
         whoToClick(); // calling the function to keep playing
     } else {
-        alert('Keep on clicking!');
+        alert('Wrong! Keep on clicking!');
     };
 
 
