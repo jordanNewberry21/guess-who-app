@@ -1,10 +1,10 @@
 console.log('Here are all the available people:', people);
 $(document).ready(readyNow);
 
-let personNumber = 0;
+let personNumber = 0; // global variable to keep track of who to click on
 
 function readyNow() {
-    whoToClick();
+    whoToClick(); // starts game
     $('#pictureSpot').on('click', '.imgClick', handleClick) // click event handler
 
     for (let i = 0; i < people.length; i++) { // for-of loop creating dynamic divs with unique IDs
@@ -16,26 +16,26 @@ function readyNow() {
     };
 }
 
-function randomNumber(min, max) {
+function randomNumber(min, max) { // random number generator
     return Math.floor(Math.random() * (1 + max - min) + min);
 }
 
-function handleClick() {
-    let whatEva = $(this).data('name');
-    if (whatEva == people[personNumber].githubUsername) {
+function handleClick() { // click handler
+    let whatEva = $(this).data('name'); // grabbing username data from the img tag
+    if (whatEva == people[personNumber].githubUsername) { // comparing the data to the object
         alert('You got it right! Go for another!');
+        whoToClick(); // calling the function to keep playing
     } else {
         alert('Keep on clicking!');
     };
-    whoToClick();
-    
+
 
 }
 
 function whoToClick() {
-    personNumber = randomNumber(0, people.length);
+    personNumber = randomNumber(0, people.length); // generating random number to see who to click on
     console.log(personNumber);
-    switch (personNumber) {
+    switch (personNumber) { // multiple switch statements to say who to click on
         case 0:
             alert(`Click on ${people[0].name}!`);
             break;
